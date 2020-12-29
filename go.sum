@@ -1,0 +1,11 @@
+github.com/shirou/gopsutil v3.20.11+incompatible h1:LJr4ZQK4mPpIV5gOa4jCOKOGb4ty4DZO54I4FGqIpto=
+github.com/shirou/gopsutil v3.20.11+incompatible/go.mod h1:5b4v6he4MtMOwMlS0TUMTu2PcXUg8+E1lC7eC3UO/RA=
+github.com/thatisuday/clapper v1.0.10 h1:1EkqE/nb4npp8DuTKnpvVzO/Mcac9lOPND34uUKF+bU=
+github.com/thatisuday/clapper v1.0.10/go.mod h1:FQGIg8q2uzeI+3SUS82YKF4E3KexkHStbiK4qTfDknM=
+github.com/thatisuday/commando v1.0.4 h1:aNdH9tvmx2EPG6rT3NTQOV/qFYPf4Ap4Spo+q+n9Ois=
+github.com/thatisuday/commando v1.0.4/go.mod h1:ODGz6jwJs4QqhLJtCjRRs8xIrmLLMdatYYddP+v1b4E=
+golang.org/x/sys v0.0.0-20201223074533-0d417f636930 h1:vRgIt+nup/B/BwIS0g2oC0haq0iqbV3ZA+u6+0TlNCo=
+golang.org/x/sys v0.0.0-20201223074533-0d417f636930/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
+gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776 h1:tQIYjPdBoyREyB9XMu+nnTclpTYkz2zFM+lzLJFO4gQ=
+gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
