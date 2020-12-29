@@ -1,2 +1,2 @@
-# mason
+# MASON
 Mason builds machines
