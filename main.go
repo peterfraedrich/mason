@@ -12,7 +12,8 @@ func main() {
 	commando.Register("survey").
 		SetDescription("Surveys the machine and returns data").
 		SetShortDescription("displays system information").
-		AddFlag("output,o", "sets the output type (json, yaml)", commando.String, "json").
+		AddFlag("output,o", "sets the output type (json, yaml, xml, toml, hcl)", commando.String, "json").
+		AddFlag("packages,p", "whether to collect package info", commando.Bool, true).
 		SetAction(surveyHandler)
 
 	commando.Parse(nil)

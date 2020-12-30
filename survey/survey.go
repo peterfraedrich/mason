@@ -1,18 +1,18 @@
-package main
+package survey
 
 import (
 	"fmt"
 	"strings"
 	"time"
 
-	"github.com/shirou/gopsutil/net"
-
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/host"
 )
 
-func doSurvey() (map[string]interface{}, error) {
-	done := make(chan bool, 3)
+//DoSurvey function
+func DoSurvey(getPackages bool) (map[string]interface{}, error) {
+	numWorkers := 5
+	done := make(chan bool, numWorkers)
 	res := map[string]interface{}{}
 	go func() {
 		host, err := host.Info()
@@ -49,10 +49,6 @@ func doSurvey() (map[string]interface{}, error) {
 		done <- true
 	}()
 	go func() {
-		_, err := net.Interfaces()
-		if err != nil {
-			fmt.Println(err)
-		}
 		ip, mask := getPreferredIP()
 		res["net"] = map[string]interface{}{
 			"ipv4_private":         ip,
@@ -62,7 +58,24 @@ func doSurvey() (map[string]interface{}, error) {
 		}
 		done <- true
 	}()
-	for i := 0; i < 3; i++ {
+	go func() {
+		if getPackages {
+			d, _ := GetPackages()
+			res["packages"] = map[string]interface{}{
+				"list":             d.Packages,
+				"package_managers": d.PackageManagers,
+			}
+		}
+		done <- true
+	}()
+	go func() {
+		a, _ := GetAWS()
+		res["cloud"] = map[string]interface{}{
+			"aws": a,
+		}
+		done <- true
+	}()
+	for i := 0; i < numWorkers; i++ {
 		<-done
 	}
 	return res, nil

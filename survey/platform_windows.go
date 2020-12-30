@@ -1,4 +1,4 @@
-package main
+package survey
 
 import (
 	"github.com/StackExchange/wmi"

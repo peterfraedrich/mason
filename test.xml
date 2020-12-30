@@ -1,0 +1,41 @@
+<doc>
+    <cloud>
+        <AWSData>
+            <Ec2AmiID></Ec2AmiID>
+            <Ec2AvailabilityZone></Ec2AvailabilityZone>
+            <Ec2InstanceID></Ec2InstanceID>
+            <Ec2InstanceType></Ec2InstanceType>
+            <Ec2Profile></Ec2Profile>
+            <Ec2PublicIP4></Ec2PublicIP4>
+            <Ec2IAMID></Ec2IAMID>
+            <Ec2IAMARN></Ec2IAMARN>
+        </AWSData>
+    </cloud>
+    <cpu>
+        <cache_size>512</cache_size>
+        <cores>16</cores>
+        <mhz>3593.298</mhz>
+        <model>AMD Ryzen 7 1800X Eight-Core Processor</model>
+        <vendor>AuthenticAMD</vendor>
+    </cpu>
+    <host>
+        <architecture>x86_64</architecture>
+        <boot_time_iso>2020-12-18T14:03:50-05:00</boot_time_iso>
+        <uint64>1608318230</uint64>
+        <host_id>3be84373-35bd-442d-988b-fbf92fe058fa</host_id>
+        <hostname>SATELLITE</hostname>
+        <kernel_version>4.19.128-microsoft-standard</kernel_version>
+        <os_family>debian</os_family>
+        <os_name>ubuntu</os_name>
+        <os_type>linux</os_type>
+        <os_version>18.04</os_version>
+        <uint64>980967</uint64>
+    </host>
+    <net>
+        <ipv4_private>192.168.89.154</ipv4_private>
+        <ipv4_private_netmask>/24</ipv4_private_netmask>
+        <ipv4_public>71.191.240.66</ipv4_public>
+        <string>10.0.0.1</string>
+        <string>10.0.0.2</string>
+    </net>
+</doc>

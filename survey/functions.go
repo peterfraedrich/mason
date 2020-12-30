@@ -1,20 +1,25 @@
-package main
+package survey
 
 import (
 	"encoding/json"
 	"fmt"
 	"net"
 	"runtime"
+	"strings"
 
 	"github.com/chyeh/pubip"
+	"github.com/clbanning/anyxml"
+	"github.com/pelletier/go-toml"
+	"github.com/rodaine/hclencoder"
 	"github.com/shirou/gopsutil/cpu"
 	"gopkg.in/yaml.v3"
 )
 
-func writeOutput(data interface{}, format string) error {
+//WriteOutput function
+func WriteOutput(data interface{}, format string) error {
 	d := []byte{}
 	var err error
-	switch format {
+	switch strings.ToLower(format) {
 	case "json":
 		d, err = json.Marshal(data)
 		if err != nil {
@@ -22,6 +27,21 @@ func writeOutput(data interface{}, format string) error {
 		}
 	case "yaml":
 		d, err = yaml.Marshal(data)
+		if err != nil {
+			return err
+		}
+	case "xml":
+		d, err = anyxml.Xml(data)
+		if err != nil {
+			return err
+		}
+	case "toml":
+		d, err = toml.Marshal(data)
+		if err != nil {
+			return err
+		}
+	case "hcl":
+		d, err = hclencoder.Encode(data)
 		if err != nil {
 			return err
 		}
