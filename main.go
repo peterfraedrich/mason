@@ -16,5 +16,11 @@ func main() {
 		AddFlag("packages,p", "whether to collect package info", commando.Bool, true).
 		SetAction(surveyHandler)
 
+	commando.Register("build").
+		SetDescription("Builds the given blueprint").
+		SetShortDescription("Builds a blueprint").
+		AddFlag("blueprint,b", "which blueprint to build", commando.String, "blueprint.yaml").
+		SetAction(buildHandler)
+
 	commando.Parse(nil)
 }
