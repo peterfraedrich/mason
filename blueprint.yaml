@@ -1,0 +1,32 @@
+name: My Playbook
+
+# OPTIONAL
+default_shell: /bin/bash
+parallel: false
+
+# ENV is injected into shell commands
+env:
+  - MYVAR: myval
+
+# vars are used in template substitution
+vars:
+  - myvar: myval
+
+#!OPTIONAL
+
+steps:
+  - name: step 1
+    template:
+      src: /my/template
+      dest: /my/destination
+      force: false # ignore idempotency
+
+  - name: step 2
+    run: echo "hello"
+    creates: '' # optional, for idempotency
+
+  - name: step3
+    http:
+      url: https://yeticloud.com
+      status: 200
+      dest: /my/destination # if dest is provided, this is idempotent
