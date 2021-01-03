@@ -8,14 +8,15 @@ type Blueprint struct {
 	DefaultShell string `yaml:"default_shell"`
 	Parallel     bool   `yaml:"parallel"`
 
-	Env  map[string]string `yaml:"env"`
-	Vars map[string]string `yaml:"vars"`
+	Env  []map[string]string `yaml:"env"`
+	Vars []map[string]string `yaml:"vars"`
 
-	Steps []BuildStep `yaml:"steps"`
+	Steps []Step `yaml:"steps"`
 }
 
-//BuildStep type
-type BuildStep struct {
+//Step type
+type Step struct {
+	GenericStep
 	Name string `yaml:"name"`
 }
 

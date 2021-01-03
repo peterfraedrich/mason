@@ -2,11 +2,11 @@ name: hellooooo
 
 # ENV is injected into shell commands
 env:
-  MYVAR: myval
+  - MYVAR: myval
 
 # vars are used in template substitution
 vars:
-  myvar: myval
+  - myvar: myval
 
 #!OPTIONAL
 
@@ -18,8 +18,9 @@ steps:
       force: false # ignore idempotency
 
   - name: step 2
-    run: echo "hello"
-    creates: '' # optional, for idempotency
+    run: 
+      cmd: echo "hello"
+      creates: '' # optional, for idempotency
 
   - name: step3
     http:

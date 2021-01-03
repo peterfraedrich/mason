@@ -3,7 +3,7 @@ package build
 //Type BuildStep
 
 //Validate method
-func (b *BuildStep) Validate() error {
+func (b *Step) Validate() error {
 
 	return nil
 }
