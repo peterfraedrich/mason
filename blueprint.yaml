@@ -1,16 +1,12 @@
-name: My Playbook
-
-# OPTIONAL
-default_shell: /bin/bash
-parallel: false
+name: hellooooo
 
 # ENV is injected into shell commands
 env:
-  - MYVAR: myval
+  MYVAR: myval
 
 # vars are used in template substitution
 vars:
-  - myvar: myval
+  myvar: myval
 
 #!OPTIONAL
 

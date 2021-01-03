@@ -11,10 +11,23 @@ type Blueprint struct {
 	Env  map[string]string `yaml:"env"`
 	Vars map[string]string `yaml:"vars"`
 
-	Steps []BlueprintStep `yaml:"steps"`
+	Steps []BuildStep `yaml:"steps"`
 }
 
-//BlueprintStep type
-type BlueprintStep struct {
+//BuildStep type
+type BuildStep struct {
 	Name string `yaml:"name"`
+}
+
+type schemaField struct {
+	Name         string
+	Value        interface{}
+	DefaultValue interface{}
+	ValueType    string
+	Required     bool
+	NullValue    interface{}
+}
+
+//StepResults type
+type StepResults struct {
 }

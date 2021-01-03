@@ -9,6 +9,7 @@ require (
 	github.com/go-cmd/cmd v1.3.0
 	github.com/go-ole/go-ole v1.2.4 // indirect
 	github.com/jpillora/backoff v1.0.0 // indirect
+	github.com/oleiade/reflections v1.0.1
 	github.com/pelletier/go-toml v1.8.1
 	github.com/rodaine/hclencoder v0.0.0-20200910194838-aaa140ee61ed
 	github.com/shirou/gopsutil v3.20.11+incompatible
