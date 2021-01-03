@@ -35,9 +35,9 @@ func (s *Template) do() error {
 //HTTPGet type
 type HTTPGet struct {
 	step
-	URL       string              `yaml:"url"`
+	URL       string              `yaml:"url" required:"true"`
 	Status    int                 `yaml:"status"`
-	Dest      string              `yaml:"dest" required:"false"`
+	Dest      string              `yaml:"dest"`
 	Headers   []map[string]string `yaml:"headers"`
 	IgnoreSSL bool                `yaml:"ignore_ssl"`
 }
@@ -49,8 +49,8 @@ func (s *HTTPGet) do() error {
 //HTTPPost type
 type HTTPPost struct {
 	step
-	URL       string              `yaml:"url"`
-	Payload   string              `yaml:"payload"`
+	URL       string              `yaml:"url" required:"true"`
+	Payload   string              `yaml:"payload" required:"true"`
 	Status    int                 `yaml:"status"`
 	Headers   []map[string]string `yaml:"headers"`
 	IgnoreSSL bool                `yaml:"ignore_ssl"`
@@ -63,11 +63,22 @@ func (s *HTTPPost) do() error {
 //Run runs a shell command
 type Run struct {
 	step
-	CMD    string `yaml:"cmd"`
+	CMD    string `yaml:"cmd" required:"true"`
 	Shell  string `yaml:"shell"`
 	AsUser string `yaml:"as_user"`
 }
 
 func (s *Run) do() error {
+	return nil
+}
+
+//Package func
+type Package struct {
+	step
+	Name    string `yaml:"name"`
+	Version string `yaml:"version" required:"false"`
+}
+
+func (s *Package) do() error {
 	return nil
 }

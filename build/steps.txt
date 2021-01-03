@@ -1,0 +1,21 @@
+Exec
+- run: runs an arbitrary command in a shell
+- ssh: runs a command on a remote system
+
+Net/HTTP 
+- http_get: GETs a given URL
+- http_post: POSTS a payload to a given URL
+
+File
+- template: resolves a template and copies the result to a given path
+- copy: copies a file or folder from one path to another
+- stat: gets file info stat
+- find: finds a regex pattern in a file 
+- replace: find a regex pattern and replace with a string in a given file
+
+OS
+- service: sets service state via service manager
+
+DOCKER
+- container: manages container state
+
