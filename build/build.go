@@ -1,6 +1,10 @@
 package build
 
-import "gopkg.in/yaml.v3"
+import (
+	"fmt"
+
+	"gopkg.in/yaml.v3"
+)
 
 //GoBuild function
 func GoBuild(blueprint []byte) error {
@@ -17,13 +21,51 @@ func GoBuild(blueprint []byte) error {
 		return err
 	}
 
+	var done chan error
+	if bp.Parallel {
+		done = make(chan error, len(bp.Steps))
+	}
+
 	//execute
+	for _, step := range bp.Steps {
+		// validate
+		err = step.Validate()
+		if err != nil {
+			return err
+		}
 
-	//// render
+		// render
 
-	//// run
+		// run
+		if bp.Parallel {
+			go func() {
+				err = step.Do()
+				done <- err
+			}()
+		} else {
+			err = step.Do()
+			if err != nil {
+				return err
+			}
+		}
+		// results
+		if !bp.Parallel {
+			res, err := step.Results()
+			if err != nil {
+				return err
+			}
+			PrintResults(res)
+		}
 
-	//// results
+	}
+	if bp.Parallel {
+		for e := range done {
+			if e != nil {
+				fmt.Println(err)
+			}
+		}
+		return fmt.Errorf("there were errors executing the blueprint")
+	}
 
 	//results
 

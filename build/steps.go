@@ -2,8 +2,8 @@ package build
 
 //GenericStep interface
 type GenericStep interface {
-	Results()
-	do()
+	Results() (StepResults, error)
+	Do() error
 }
 
 type step struct {
@@ -28,7 +28,8 @@ type Template struct {
 	Force bool   `yaml:"force" required:"false"`
 }
 
-func (s *Template) do() error {
+//Do the thing
+func (s *Template) Do() error {
 	return nil
 }
 
@@ -42,7 +43,7 @@ type HTTPGet struct {
 	IgnoreSSL bool                `yaml:"ignore_ssl"`
 }
 
-func (s *HTTPGet) do() error {
+func (s *HTTPGet) Do() error {
 	return nil
 }
 
@@ -56,7 +57,8 @@ type HTTPPost struct {
 	IgnoreSSL bool                `yaml:"ignore_ssl"`
 }
 
-func (s *HTTPPost) do() error {
+//Do the thing
+func (s *HTTPPost) Do() error {
 	return nil
 }
 
@@ -68,7 +70,8 @@ type Run struct {
 	AsUser string `yaml:"as_user"`
 }
 
-func (s *Run) do() error {
+//Do the thing
+func (s *Run) Do() error {
 	return nil
 }
 
@@ -79,6 +82,7 @@ type Package struct {
 	Version string `yaml:"version" required:"false"`
 }
 
-func (s *Package) do() error {
+//Do the thing
+func (s *Package) Do() error {
 	return nil
 }
